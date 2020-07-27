@@ -78,7 +78,7 @@ func (x HealthCheckResponse_ServingStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use HealthCheckResponse_ServingStatus.Descriptor instead.
 func (HealthCheckResponse_ServingStatus) EnumDescriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{3, 0}
+	return file_api_proto_rawDescGZIP(), []int{14, 0}
 }
 
 type PingRequest struct {
@@ -166,6 +166,579 @@ func (x *PingResponse) GetMessage() string {
 	return ""
 }
 
+type Story struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id        string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title     string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Body      string `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	Views     int64  `protobuf:"varint,4,opt,name=views,proto3" json:"views,omitempty"`
+	UpVotes   int64  `protobuf:"varint,5,opt,name=upVotes,proto3" json:"upVotes,omitempty"`
+	DownVotes int64  `protobuf:"varint,6,opt,name=downVotes,proto3" json:"downVotes,omitempty"`
+}
+
+func (x *Story) Reset() {
+	*x = Story{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Story) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Story) ProtoMessage() {}
+
+func (x *Story) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Story.ProtoReflect.Descriptor instead.
+func (*Story) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Story) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Story) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Story) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+func (x *Story) GetViews() int64 {
+	if x != nil {
+		return x.Views
+	}
+	return 0
+}
+
+func (x *Story) GetUpVotes() int64 {
+	if x != nil {
+		return x.UpVotes
+	}
+	return 0
+}
+
+func (x *Story) GetDownVotes() int64 {
+	if x != nil {
+		return x.DownVotes
+	}
+	return 0
+}
+
+type AddStoryRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Story *Story `protobuf:"bytes,1,opt,name=story,proto3" json:"story,omitempty"`
+}
+
+func (x *AddStoryRequest) Reset() {
+	*x = AddStoryRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddStoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddStoryRequest) ProtoMessage() {}
+
+func (x *AddStoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddStoryRequest.ProtoReflect.Descriptor instead.
+func (*AddStoryRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AddStoryRequest) GetStory() *Story {
+	if x != nil {
+		return x.Story
+	}
+	return nil
+}
+
+type AddStoryResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Success bool `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+}
+
+func (x *AddStoryResponse) Reset() {
+	*x = AddStoryResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddStoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddStoryResponse) ProtoMessage() {}
+
+func (x *AddStoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddStoryResponse.ProtoReflect.Descriptor instead.
+func (*AddStoryResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AddStoryResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type GetStoryRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StoryID string `protobuf:"bytes,1,opt,name=storyID,proto3" json:"storyID,omitempty"`
+}
+
+func (x *GetStoryRequest) Reset() {
+	*x = GetStoryRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetStoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStoryRequest) ProtoMessage() {}
+
+func (x *GetStoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStoryRequest.ProtoReflect.Descriptor instead.
+func (*GetStoryRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetStoryRequest) GetStoryID() string {
+	if x != nil {
+		return x.StoryID
+	}
+	return ""
+}
+
+type GetStoryResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Story *Story `protobuf:"bytes,1,opt,name=story,proto3" json:"story,omitempty"`
+}
+
+func (x *GetStoryResponse) Reset() {
+	*x = GetStoryResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetStoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStoryResponse) ProtoMessage() {}
+
+func (x *GetStoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStoryResponse.ProtoReflect.Descriptor instead.
+func (*GetStoryResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetStoryResponse) GetStory() *Story {
+	if x != nil {
+		return x.Story
+	}
+	return nil
+}
+
+type SearchStoriesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+}
+
+func (x *SearchStoriesRequest) Reset() {
+	*x = SearchStoriesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchStoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchStoriesRequest) ProtoMessage() {}
+
+func (x *SearchStoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchStoriesRequest.ProtoReflect.Descriptor instead.
+func (*SearchStoriesRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *SearchStoriesRequest) GetQuery() string {
+	if x != nil {
+		return x.Query
+	}
+	return ""
+}
+
+type SearchStoriesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Stories []*Story `protobuf:"bytes,1,rep,name=stories,proto3" json:"stories,omitempty"`
+}
+
+func (x *SearchStoriesResponse) Reset() {
+	*x = SearchStoriesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchStoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchStoriesResponse) ProtoMessage() {}
+
+func (x *SearchStoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchStoriesResponse.ProtoReflect.Descriptor instead.
+func (*SearchStoriesResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SearchStoriesResponse) GetStories() []*Story {
+	if x != nil {
+		return x.Stories
+	}
+	return nil
+}
+
+type MostViewedStoriesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Offset int64 `protobuf:"varint,1,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit  int64 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+}
+
+func (x *MostViewedStoriesRequest) Reset() {
+	*x = MostViewedStoriesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MostViewedStoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MostViewedStoriesRequest) ProtoMessage() {}
+
+func (x *MostViewedStoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MostViewedStoriesRequest.ProtoReflect.Descriptor instead.
+func (*MostViewedStoriesRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *MostViewedStoriesRequest) GetOffset() int64 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+func (x *MostViewedStoriesRequest) GetLimit() int64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type MostViewedStoriesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Stories []*Story `protobuf:"bytes,1,rep,name=stories,proto3" json:"stories,omitempty"`
+}
+
+func (x *MostViewedStoriesResponse) Reset() {
+	*x = MostViewedStoriesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MostViewedStoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MostViewedStoriesResponse) ProtoMessage() {}
+
+func (x *MostViewedStoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MostViewedStoriesResponse.ProtoReflect.Descriptor instead.
+func (*MostViewedStoriesResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *MostViewedStoriesResponse) GetStories() []*Story {
+	if x != nil {
+		return x.Stories
+	}
+	return nil
+}
+
+type TopRatedStoriesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Offset int64 `protobuf:"varint,1,opt,name=offset,proto3" json:"offset,omitempty"`
+	Limit  int64 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+}
+
+func (x *TopRatedStoriesRequest) Reset() {
+	*x = TopRatedStoriesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TopRatedStoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TopRatedStoriesRequest) ProtoMessage() {}
+
+func (x *TopRatedStoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TopRatedStoriesRequest.ProtoReflect.Descriptor instead.
+func (*TopRatedStoriesRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *TopRatedStoriesRequest) GetOffset() int64 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+func (x *TopRatedStoriesRequest) GetLimit() int64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type TopRatedStoriesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Stories []*Story `protobuf:"bytes,1,rep,name=stories,proto3" json:"stories,omitempty"`
+}
+
+func (x *TopRatedStoriesResponse) Reset() {
+	*x = TopRatedStoriesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TopRatedStoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TopRatedStoriesResponse) ProtoMessage() {}
+
+func (x *TopRatedStoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TopRatedStoriesResponse.ProtoReflect.Descriptor instead.
+func (*TopRatedStoriesResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *TopRatedStoriesResponse) GetStories() []*Story {
+	if x != nil {
+		return x.Stories
+	}
+	return nil
+}
+
 type HealthCheckRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -177,7 +750,7 @@ type HealthCheckRequest struct {
 func (x *HealthCheckRequest) Reset() {
 	*x = HealthCheckRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[2]
+		mi := &file_api_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -190,7 +763,7 @@ func (x *HealthCheckRequest) String() string {
 func (*HealthCheckRequest) ProtoMessage() {}
 
 func (x *HealthCheckRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[2]
+	mi := &file_api_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -203,7 +776,7 @@ func (x *HealthCheckRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthCheckRequest.ProtoReflect.Descriptor instead.
 func (*HealthCheckRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{2}
+	return file_api_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *HealthCheckRequest) GetService() string {
@@ -224,7 +797,7 @@ type HealthCheckResponse struct {
 func (x *HealthCheckResponse) Reset() {
 	*x = HealthCheckResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[3]
+		mi := &file_api_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -237,7 +810,7 @@ func (x *HealthCheckResponse) String() string {
 func (*HealthCheckResponse) ProtoMessage() {}
 
 func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[3]
+	mi := &file_api_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -250,7 +823,7 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthCheckResponse.ProtoReflect.Descriptor instead.
 func (*HealthCheckResponse) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{3}
+	return file_api_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *HealthCheckResponse) GetStatus() HealthCheckResponse_ServingStatus {
@@ -267,31 +840,96 @@ var file_api_proto_rawDesc = []byte{
 	0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x28, 0x0a, 0x0c, 0x50, 0x69,
 	0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
 	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x22, 0x2e, 0x0a, 0x12, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68,
-	0x65, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x22, 0xa2, 0x01, 0x0a, 0x13, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43,
-	0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x06,
-	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x22, 0x2e, 0x48,
-	0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x2e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x4f, 0x0a, 0x0d, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b,
-	0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x53, 0x45, 0x52, 0x56, 0x49, 0x4e,
-	0x47, 0x10, 0x01, 0x12, 0x0f, 0x0a, 0x0b, 0x4e, 0x4f, 0x54, 0x5f, 0x53, 0x45, 0x52, 0x56, 0x49,
-	0x4e, 0x47, 0x10, 0x02, 0x12, 0x13, 0x0a, 0x0f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x5f,
-	0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x03, 0x32, 0x70, 0x0a, 0x06, 0x48, 0x65, 0x61,
-	0x6c, 0x74, 0x68, 0x12, 0x32, 0x0a, 0x05, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x12, 0x13, 0x2e, 0x48,
+	0x73, 0x61, 0x67, 0x65, 0x22, 0x8f, 0x01, 0x0a, 0x05, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14,
+	0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74,
+	0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x69, 0x65, 0x77,
+	0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x69, 0x65, 0x77, 0x73, 0x12, 0x18,
+	0x0a, 0x07, 0x75, 0x70, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x07, 0x75, 0x70, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x09, 0x64, 0x6f, 0x77, 0x6e,
+	0x56, 0x6f, 0x74, 0x65, 0x73, 0x18, 0x06, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x64, 0x6f, 0x77,
+	0x6e, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x22, 0x2f, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x53, 0x74, 0x6f,
+	0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1c, 0x0a, 0x05, 0x73, 0x74, 0x6f,
+	0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79,
+	0x52, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x22, 0x2c, 0x0a, 0x10, 0x41, 0x64, 0x64, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73,
+	0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75,
+	0x63, 0x63, 0x65, 0x73, 0x73, 0x22, 0x2b, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72,
+	0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x74, 0x6f, 0x72,
+	0x79, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x74, 0x6f, 0x72, 0x79,
+	0x49, 0x44, 0x22, 0x30, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x05, 0x73,
+	0x74, 0x6f, 0x72, 0x79, 0x22, 0x2c, 0x0a, 0x14, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x53, 0x74,
+	0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05,
+	0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x71, 0x75, 0x65,
+	0x72, 0x79, 0x22, 0x39, 0x0a, 0x15, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x53, 0x74, 0x6f, 0x72,
+	0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x07, 0x73,
+	0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x53,
+	0x74, 0x6f, 0x72, 0x79, 0x52, 0x07, 0x73, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x22, 0x48, 0x0a,
+	0x18, 0x4d, 0x6f, 0x73, 0x74, 0x56, 0x69, 0x65, 0x77, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69,
+	0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66,
+	0x73, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65,
+	0x74, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x22, 0x3d, 0x0a, 0x19, 0x4d, 0x6f, 0x73, 0x74, 0x56,
+	0x69, 0x65, 0x77, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x07, 0x73, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x07, 0x73,
+	0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x22, 0x46, 0x0a, 0x16, 0x54, 0x6f, 0x70, 0x52, 0x61, 0x74,
+	0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69,
+	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x22, 0x3b,
+	0x0a, 0x17, 0x54, 0x6f, 0x70, 0x52, 0x61, 0x74, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x07, 0x73, 0x74, 0x6f,
+	0x72, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x53, 0x74, 0x6f,
+	0x72, 0x79, 0x52, 0x07, 0x73, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x22, 0x2e, 0x0a, 0x12, 0x48,
 	0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x14, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x05, 0x57, 0x61, 0x74, 0x63, 0x68,
-	0x12, 0x13, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68,
-	0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x31, 0x0a, 0x0a, 0x53,
-	0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x41, 0x70, 0x69, 0x12, 0x23, 0x0a, 0x04, 0x50, 0x69, 0x6e,
-	0x67, 0x12, 0x0c, 0x2e, 0x50, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x0d, 0x2e, 0x50, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x07,
-	0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x22, 0xa2, 0x01, 0x0a, 0x13,
+	0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0e, 0x32, 0x22, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63,
+	0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e,
+	0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22,
+	0x4f, 0x0a, 0x0d, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x0b, 0x0a,
+	0x07, 0x53, 0x45, 0x52, 0x56, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x0f, 0x0a, 0x0b, 0x4e, 0x4f,
+	0x54, 0x5f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x4e, 0x47, 0x10, 0x02, 0x12, 0x13, 0x0a, 0x0f, 0x53,
+	0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x5f, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x03,
+	0x32, 0x70, 0x0a, 0x06, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x12, 0x32, 0x0a, 0x05, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x12, 0x13, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63,
+	0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74,
+	0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32,
+	0x0a, 0x05, 0x57, 0x61, 0x74, 0x63, 0x68, 0x12, 0x13, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68,
+	0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x48,
+	0x65, 0x61, 0x6c, 0x74, 0x68, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x32, 0xeb, 0x02, 0x0a, 0x0a, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x41, 0x70,
+	0x69, 0x12, 0x23, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12, 0x0c, 0x2e, 0x50, 0x69, 0x6e, 0x67,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0d, 0x2e, 0x50, 0x69, 0x6e, 0x67, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x41, 0x64, 0x64, 0x53, 0x74, 0x6f,
+	0x72, 0x79, 0x12, 0x10, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x12, 0x10, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3e, 0x0a, 0x0d, 0x53, 0x65, 0x61, 0x72,
+	0x63, 0x68, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x12, 0x15, 0x2e, 0x53, 0x65, 0x61, 0x72,
+	0x63, 0x68, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x16, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4d, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d,
+	0x6f, 0x73, 0x74, 0x56, 0x69, 0x65, 0x77, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73,
+	0x12, 0x19, 0x2e, 0x4d, 0x6f, 0x73, 0x74, 0x56, 0x69, 0x65, 0x77, 0x65, 0x64, 0x53, 0x74, 0x6f,
+	0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x4d, 0x6f,
+	0x73, 0x74, 0x56, 0x69, 0x65, 0x77, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x54, 0x6f,
+	0x70, 0x52, 0x61, 0x74, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x12, 0x17, 0x2e,
+	0x54, 0x6f, 0x70, 0x52, 0x61, 0x74, 0x65, 0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x54, 0x6f, 0x70, 0x52, 0x61, 0x74, 0x65,
+	0x64, 0x53, 0x74, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -307,27 +945,53 @@ func file_api_proto_rawDescGZIP() []byte {
 }
 
 var file_api_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_api_proto_goTypes = []interface{}{
 	(HealthCheckResponse_ServingStatus)(0), // 0: HealthCheckResponse.ServingStatus
 	(*PingRequest)(nil),                    // 1: PingRequest
 	(*PingResponse)(nil),                   // 2: PingResponse
-	(*HealthCheckRequest)(nil),             // 3: HealthCheckRequest
-	(*HealthCheckResponse)(nil),            // 4: HealthCheckResponse
+	(*Story)(nil),                          // 3: Story
+	(*AddStoryRequest)(nil),                // 4: AddStoryRequest
+	(*AddStoryResponse)(nil),               // 5: AddStoryResponse
+	(*GetStoryRequest)(nil),                // 6: GetStoryRequest
+	(*GetStoryResponse)(nil),               // 7: GetStoryResponse
+	(*SearchStoriesRequest)(nil),           // 8: SearchStoriesRequest
+	(*SearchStoriesResponse)(nil),          // 9: SearchStoriesResponse
+	(*MostViewedStoriesRequest)(nil),       // 10: MostViewedStoriesRequest
+	(*MostViewedStoriesResponse)(nil),      // 11: MostViewedStoriesResponse
+	(*TopRatedStoriesRequest)(nil),         // 12: TopRatedStoriesRequest
+	(*TopRatedStoriesResponse)(nil),        // 13: TopRatedStoriesResponse
+	(*HealthCheckRequest)(nil),             // 14: HealthCheckRequest
+	(*HealthCheckResponse)(nil),            // 15: HealthCheckResponse
 }
 var file_api_proto_depIdxs = []int32{
-	0, // 0: HealthCheckResponse.status:type_name -> HealthCheckResponse.ServingStatus
-	3, // 1: Health.Check:input_type -> HealthCheckRequest
-	3, // 2: Health.Watch:input_type -> HealthCheckRequest
-	1, // 3: StoriesApi.Ping:input_type -> PingRequest
-	4, // 4: Health.Check:output_type -> HealthCheckResponse
-	4, // 5: Health.Watch:output_type -> HealthCheckResponse
-	2, // 6: StoriesApi.Ping:output_type -> PingResponse
-	4, // [4:7] is the sub-list for method output_type
-	1, // [1:4] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3,  // 0: AddStoryRequest.story:type_name -> Story
+	3,  // 1: GetStoryResponse.story:type_name -> Story
+	3,  // 2: SearchStoriesResponse.stories:type_name -> Story
+	3,  // 3: MostViewedStoriesResponse.stories:type_name -> Story
+	3,  // 4: TopRatedStoriesResponse.stories:type_name -> Story
+	0,  // 5: HealthCheckResponse.status:type_name -> HealthCheckResponse.ServingStatus
+	14, // 6: Health.Check:input_type -> HealthCheckRequest
+	14, // 7: Health.Watch:input_type -> HealthCheckRequest
+	1,  // 8: StoriesApi.Ping:input_type -> PingRequest
+	4,  // 9: StoriesApi.AddStory:input_type -> AddStoryRequest
+	6,  // 10: StoriesApi.GetStory:input_type -> GetStoryRequest
+	8,  // 11: StoriesApi.SearchStories:input_type -> SearchStoriesRequest
+	10, // 12: StoriesApi.GetMostViewedStories:input_type -> MostViewedStoriesRequest
+	12, // 13: StoriesApi.GetTopRatedStories:input_type -> TopRatedStoriesRequest
+	15, // 14: Health.Check:output_type -> HealthCheckResponse
+	15, // 15: Health.Watch:output_type -> HealthCheckResponse
+	2,  // 16: StoriesApi.Ping:output_type -> PingResponse
+	5,  // 17: StoriesApi.AddStory:output_type -> AddStoryResponse
+	7,  // 18: StoriesApi.GetStory:output_type -> GetStoryResponse
+	9,  // 19: StoriesApi.SearchStories:output_type -> SearchStoriesResponse
+	11, // 20: StoriesApi.GetMostViewedStories:output_type -> MostViewedStoriesResponse
+	13, // 21: StoriesApi.GetTopRatedStories:output_type -> TopRatedStoriesResponse
+	14, // [14:22] is the sub-list for method output_type
+	6,  // [6:14] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_api_proto_init() }
@@ -361,7 +1025,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HealthCheckRequest); i {
+			switch v := v.(*Story); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -373,6 +1037,138 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddStoryRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddStoryResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetStoryRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetStoryResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchStoriesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchStoriesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MostViewedStoriesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MostViewedStoriesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TopRatedStoriesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TopRatedStoriesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*HealthCheckRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HealthCheckResponse); i {
 			case 0:
 				return &v.state
@@ -391,7 +1187,7 @@ func file_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   4,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
@@ -527,6 +1323,11 @@ var _Health_serviceDesc = grpc.ServiceDesc{
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type StoriesApiClient interface {
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
+	AddStory(ctx context.Context, in *AddStoryRequest, opts ...grpc.CallOption) (*AddStoryResponse, error)
+	GetStory(ctx context.Context, in *GetStoryRequest, opts ...grpc.CallOption) (*GetStoryResponse, error)
+	SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error)
+	GetMostViewedStories(ctx context.Context, in *MostViewedStoriesRequest, opts ...grpc.CallOption) (*MostViewedStoriesResponse, error)
+	GetTopRatedStories(ctx context.Context, in *TopRatedStoriesRequest, opts ...grpc.CallOption) (*TopRatedStoriesResponse, error)
 }
 
 type storiesApiClient struct {
@@ -546,9 +1347,59 @@ func (c *storiesApiClient) Ping(ctx context.Context, in *PingRequest, opts ...gr
 	return out, nil
 }
 
+func (c *storiesApiClient) AddStory(ctx context.Context, in *AddStoryRequest, opts ...grpc.CallOption) (*AddStoryResponse, error) {
+	out := new(AddStoryResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/AddStory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storiesApiClient) GetStory(ctx context.Context, in *GetStoryRequest, opts ...grpc.CallOption) (*GetStoryResponse, error) {
+	out := new(GetStoryResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/GetStory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storiesApiClient) SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error) {
+	out := new(SearchStoriesResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/SearchStories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storiesApiClient) GetMostViewedStories(ctx context.Context, in *MostViewedStoriesRequest, opts ...grpc.CallOption) (*MostViewedStoriesResponse, error) {
+	out := new(MostViewedStoriesResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/GetMostViewedStories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storiesApiClient) GetTopRatedStories(ctx context.Context, in *TopRatedStoriesRequest, opts ...grpc.CallOption) (*TopRatedStoriesResponse, error) {
+	out := new(TopRatedStoriesResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/GetTopRatedStories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // StoriesApiServer is the server API for StoriesApi service.
 type StoriesApiServer interface {
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
+	AddStory(context.Context, *AddStoryRequest) (*AddStoryResponse, error)
+	GetStory(context.Context, *GetStoryRequest) (*GetStoryResponse, error)
+	SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error)
+	GetMostViewedStories(context.Context, *MostViewedStoriesRequest) (*MostViewedStoriesResponse, error)
+	GetTopRatedStories(context.Context, *TopRatedStoriesRequest) (*TopRatedStoriesResponse, error)
 }
 
 // UnimplementedStoriesApiServer can be embedded to have forward compatible implementations.
@@ -557,6 +1408,21 @@ type UnimplementedStoriesApiServer struct {
 
 func (*UnimplementedStoriesApiServer) Ping(context.Context, *PingRequest) (*PingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
+}
+func (*UnimplementedStoriesApiServer) AddStory(context.Context, *AddStoryRequest) (*AddStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddStory not implemented")
+}
+func (*UnimplementedStoriesApiServer) GetStory(context.Context, *GetStoryRequest) (*GetStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStory not implemented")
+}
+func (*UnimplementedStoriesApiServer) SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchStories not implemented")
+}
+func (*UnimplementedStoriesApiServer) GetMostViewedStories(context.Context, *MostViewedStoriesRequest) (*MostViewedStoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMostViewedStories not implemented")
+}
+func (*UnimplementedStoriesApiServer) GetTopRatedStories(context.Context, *TopRatedStoriesRequest) (*TopRatedStoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTopRatedStories not implemented")
 }
 
 func RegisterStoriesApiServer(s *grpc.Server, srv StoriesApiServer) {
@@ -581,6 +1447,96 @@ func _StoriesApi_Ping_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StoriesApi_AddStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).AddStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/AddStory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).AddStory(ctx, req.(*AddStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoriesApi_GetStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).GetStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/GetStory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).GetStory(ctx, req.(*GetStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoriesApi_SearchStories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchStoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).SearchStories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/SearchStories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).SearchStories(ctx, req.(*SearchStoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoriesApi_GetMostViewedStories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MostViewedStoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).GetMostViewedStories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/GetMostViewedStories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).GetMostViewedStories(ctx, req.(*MostViewedStoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoriesApi_GetTopRatedStories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TopRatedStoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).GetTopRatedStories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/GetTopRatedStories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).GetTopRatedStories(ctx, req.(*TopRatedStoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _StoriesApi_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "StoriesApi",
 	HandlerType: (*StoriesApiServer)(nil),
@@ -588,6 +1544,26 @@ var _StoriesApi_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Ping",
 			Handler:    _StoriesApi_Ping_Handler,
+		},
+		{
+			MethodName: "AddStory",
+			Handler:    _StoriesApi_AddStory_Handler,
+		},
+		{
+			MethodName: "GetStory",
+			Handler:    _StoriesApi_GetStory_Handler,
+		},
+		{
+			MethodName: "SearchStories",
+			Handler:    _StoriesApi_SearchStories_Handler,
+		},
+		{
+			MethodName: "GetMostViewedStories",
+			Handler:    _StoriesApi_GetMostViewedStories_Handler,
+		},
+		{
+			MethodName: "GetTopRatedStories",
+			Handler:    _StoriesApi_GetTopRatedStories_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

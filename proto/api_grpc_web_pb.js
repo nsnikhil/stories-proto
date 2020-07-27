@@ -361,5 +361,405 @@ proto.StoriesApiPromiseClient.prototype.ping =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.AddStoryRequest,
+ *   !proto.AddStoryResponse>}
+ */
+const methodDescriptor_StoriesApi_AddStory = new grpc.web.MethodDescriptor(
+  '/StoriesApi/AddStory',
+  grpc.web.MethodType.UNARY,
+  proto.AddStoryRequest,
+  proto.AddStoryResponse,
+  /**
+   * @param {!proto.AddStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.AddStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.AddStoryRequest,
+ *   !proto.AddStoryResponse>}
+ */
+const methodInfo_StoriesApi_AddStory = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.AddStoryResponse,
+  /**
+   * @param {!proto.AddStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.AddStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.AddStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.AddStoryResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.AddStoryResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.addStory =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/AddStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_AddStory,
+      callback);
+};
+
+
+/**
+ * @param {!proto.AddStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.AddStoryResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.addStory =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/AddStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_AddStory);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.GetStoryRequest,
+ *   !proto.GetStoryResponse>}
+ */
+const methodDescriptor_StoriesApi_GetStory = new grpc.web.MethodDescriptor(
+  '/StoriesApi/GetStory',
+  grpc.web.MethodType.UNARY,
+  proto.GetStoryRequest,
+  proto.GetStoryResponse,
+  /**
+   * @param {!proto.GetStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.GetStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.GetStoryRequest,
+ *   !proto.GetStoryResponse>}
+ */
+const methodInfo_StoriesApi_GetStory = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.GetStoryResponse,
+  /**
+   * @param {!proto.GetStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.GetStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.GetStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.GetStoryResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.GetStoryResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.getStory =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/GetStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetStory,
+      callback);
+};
+
+
+/**
+ * @param {!proto.GetStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.GetStoryResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.getStory =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/GetStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetStory);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.SearchStoriesRequest,
+ *   !proto.SearchStoriesResponse>}
+ */
+const methodDescriptor_StoriesApi_SearchStories = new grpc.web.MethodDescriptor(
+  '/StoriesApi/SearchStories',
+  grpc.web.MethodType.UNARY,
+  proto.SearchStoriesRequest,
+  proto.SearchStoriesResponse,
+  /**
+   * @param {!proto.SearchStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.SearchStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.SearchStoriesRequest,
+ *   !proto.SearchStoriesResponse>}
+ */
+const methodInfo_StoriesApi_SearchStories = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.SearchStoriesResponse,
+  /**
+   * @param {!proto.SearchStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.SearchStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.SearchStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.SearchStoriesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.SearchStoriesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.searchStories =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/SearchStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_SearchStories,
+      callback);
+};
+
+
+/**
+ * @param {!proto.SearchStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.SearchStoriesResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.searchStories =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/SearchStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_SearchStories);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.MostViewedStoriesRequest,
+ *   !proto.MostViewedStoriesResponse>}
+ */
+const methodDescriptor_StoriesApi_GetMostViewedStories = new grpc.web.MethodDescriptor(
+  '/StoriesApi/GetMostViewedStories',
+  grpc.web.MethodType.UNARY,
+  proto.MostViewedStoriesRequest,
+  proto.MostViewedStoriesResponse,
+  /**
+   * @param {!proto.MostViewedStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.MostViewedStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.MostViewedStoriesRequest,
+ *   !proto.MostViewedStoriesResponse>}
+ */
+const methodInfo_StoriesApi_GetMostViewedStories = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.MostViewedStoriesResponse,
+  /**
+   * @param {!proto.MostViewedStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.MostViewedStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.MostViewedStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.MostViewedStoriesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.MostViewedStoriesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.getMostViewedStories =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/GetMostViewedStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetMostViewedStories,
+      callback);
+};
+
+
+/**
+ * @param {!proto.MostViewedStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.MostViewedStoriesResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.getMostViewedStories =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/GetMostViewedStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetMostViewedStories);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.TopRatedStoriesRequest,
+ *   !proto.TopRatedStoriesResponse>}
+ */
+const methodDescriptor_StoriesApi_GetTopRatedStories = new grpc.web.MethodDescriptor(
+  '/StoriesApi/GetTopRatedStories',
+  grpc.web.MethodType.UNARY,
+  proto.TopRatedStoriesRequest,
+  proto.TopRatedStoriesResponse,
+  /**
+   * @param {!proto.TopRatedStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.TopRatedStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.TopRatedStoriesRequest,
+ *   !proto.TopRatedStoriesResponse>}
+ */
+const methodInfo_StoriesApi_GetTopRatedStories = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.TopRatedStoriesResponse,
+  /**
+   * @param {!proto.TopRatedStoriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.TopRatedStoriesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.TopRatedStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.TopRatedStoriesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.TopRatedStoriesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.getTopRatedStories =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/GetTopRatedStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetTopRatedStories,
+      callback);
+};
+
+
+/**
+ * @param {!proto.TopRatedStoriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.TopRatedStoriesResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.getTopRatedStories =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/GetTopRatedStories',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_GetTopRatedStories);
+};
+
+
 module.exports = proto;
 

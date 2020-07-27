@@ -9,6 +9,57 @@ message PingResponse {
     string message = 1;
 }
 
+message Story {
+    string id = 1;
+    string title = 2;
+    string body = 3;
+    int64 views = 4;
+    int64 upVotes = 5;
+    int64 downVotes = 6;
+}
+
+message AddStoryRequest {
+    Story story = 1;
+}
+
+message AddStoryResponse {
+    bool success = 1;
+}
+
+message GetStoryRequest {
+    string storyID = 1;
+}
+
+message GetStoryResponse {
+    Story story = 1;
+}
+
+message SearchStoriesRequest {
+    string query = 1;
+}
+
+message SearchStoriesResponse {
+    repeated Story stories = 1;
+}
+
+message MostViewedStoriesRequest {
+    int64 offset = 1;
+    int64 limit = 2;
+}
+
+message MostViewedStoriesResponse {
+    repeated Story stories = 1;
+}
+
+message TopRatedStoriesRequest {
+    int64 offset = 1;
+    int64 limit = 2;
+}
+
+message TopRatedStoriesResponse {
+    repeated Story stories = 1;
+}
+
 message HealthCheckRequest {
     string service = 1;
 }
@@ -24,10 +75,15 @@ message HealthCheckResponse {
 }
 
 service Health {
-    rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
-    rpc Watch(HealthCheckRequest) returns (HealthCheckResponse);
+    rpc Check (HealthCheckRequest) returns (HealthCheckResponse);
+    rpc Watch (HealthCheckRequest) returns (HealthCheckResponse);
 }
 
 service StoriesApi {
     rpc Ping (PingRequest) returns (PingResponse);
+    rpc AddStory (AddStoryRequest) returns (AddStoryResponse);
+    rpc GetStory (GetStoryRequest) returns (GetStoryResponse);
+    rpc SearchStories (SearchStoriesRequest) returns (SearchStoriesResponse);
+    rpc GetMostViewedStories (MostViewedStoriesRequest) returns (MostViewedStoriesResponse);
+    rpc GetTopRatedStories (TopRatedStoriesRequest) returns (TopRatedStoriesResponse);
 }
