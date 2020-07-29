@@ -524,6 +524,86 @@ proto.StoriesApiPromiseClient.prototype.getStory =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.UpdateStoryRequest,
+ *   !proto.UpdateStoryResponse>}
+ */
+const methodDescriptor_StoriesApi_UpdateStory = new grpc.web.MethodDescriptor(
+  '/StoriesApi/UpdateStory',
+  grpc.web.MethodType.UNARY,
+  proto.UpdateStoryRequest,
+  proto.UpdateStoryResponse,
+  /**
+   * @param {!proto.UpdateStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.UpdateStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.UpdateStoryRequest,
+ *   !proto.UpdateStoryResponse>}
+ */
+const methodInfo_StoriesApi_UpdateStory = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.UpdateStoryResponse,
+  /**
+   * @param {!proto.UpdateStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.UpdateStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.UpdateStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.UpdateStoryResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.UpdateStoryResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.updateStory =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/UpdateStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_UpdateStory,
+      callback);
+};
+
+
+/**
+ * @param {!proto.UpdateStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.UpdateStoryResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.updateStory =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/UpdateStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_UpdateStory);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.SearchStoriesRequest,
  *   !proto.SearchStoriesResponse>}
  */
