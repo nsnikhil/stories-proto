@@ -26,6 +26,14 @@ message AddStoryResponse {
     bool success = 1;
 }
 
+message UpdateStoryRequest {
+    Story story = 1;
+}
+
+message UpdateStoryResponse {
+    bool success = 1;
+}
+
 message GetStoryRequest {
     string storyID = 1;
 }
@@ -83,6 +91,7 @@ service StoriesApi {
     rpc Ping (PingRequest) returns (PingResponse);
     rpc AddStory (AddStoryRequest) returns (AddStoryResponse);
     rpc GetStory (GetStoryRequest) returns (GetStoryResponse);
+    rpc UpdateStory (UpdateStoryRequest) returns (UpdateStoryResponse);
     rpc SearchStories (SearchStoriesRequest) returns (SearchStoriesResponse);
     rpc GetMostViewedStories (MostViewedStoriesRequest) returns (MostViewedStoriesResponse);
     rpc GetTopRatedStories (TopRatedStoriesRequest) returns (TopRatedStoriesResponse);
