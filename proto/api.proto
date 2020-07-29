@@ -16,6 +16,8 @@ message Story {
     int64 views = 4;
     int64 upVotes = 5;
     int64 downVotes = 6;
+    int64 createdAtUnix = 7;
+    int64 updatedAtUnix = 8;
 }
 
 message AddStoryRequest {

@@ -655,7 +655,9 @@ proto.Story.toObject = function(includeInstance, msg) {
     body: jspb.Message.getFieldWithDefault(msg, 3, ""),
     views: jspb.Message.getFieldWithDefault(msg, 4, 0),
     upvotes: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    downvotes: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    downvotes: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    createdatunix: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    updatedatunix: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -715,6 +717,14 @@ proto.Story.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setDownvotes(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setCreatedatunix(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setUpdatedatunix(value);
       break;
     default:
       reader.skipField();
@@ -784,6 +794,20 @@ proto.Story.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       6,
+      f
+    );
+  }
+  f = message.getCreatedatunix();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
+      f
+    );
+  }
+  f = message.getUpdatedatunix();
+  if (f !== 0) {
+    writer.writeInt64(
+      8,
       f
     );
   }
@@ -895,6 +919,42 @@ proto.Story.prototype.getDownvotes = function() {
  */
 proto.Story.prototype.setDownvotes = function(value) {
   return jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional int64 createdAtUnix = 7;
+ * @return {number}
+ */
+proto.Story.prototype.getCreatedatunix = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.Story} returns this
+ */
+proto.Story.prototype.setCreatedatunix = function(value) {
+  return jspb.Message.setProto3IntField(this, 7, value);
+};
+
+
+/**
+ * optional int64 updatedAtUnix = 8;
+ * @return {number}
+ */
+proto.Story.prototype.getUpdatedatunix = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.Story} returns this
+ */
+proto.Story.prototype.setUpdatedatunix = function(value) {
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
