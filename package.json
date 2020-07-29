@@ -1,8 +1,8 @@
 {
   "name": "stories-protos",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "stories-protos",
-  "main": "proto/api_grpc_web_pb.js",
+  "main": "proto/index.js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
