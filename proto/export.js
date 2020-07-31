@@ -1,31 +1,38 @@
-import {
-    AddStoryRequest as addStoryRequest,
-    AddStoryResponse as addStoryResponse,
-    GetStoryRequest as getStoryRequest,
-    GetStoryResponse as getStoryResponse,
-    HealthCheckRequest as healthCheckRequest,
-    HealthCheckResponse as healthCheckResponse,
-    HealthClient as healthClient,
-    HealthPromiseClient as healthPromiseClient,
-    MostViewedStoriesRequest as mostViewedStoriesRequest,
-    MostViewedStoriesResponse as mostViewedStoriesResponse,
-    PingRequest as pingRequest,
-    PingResponse as pingResponse,
-    SearchStoriesRequest as searchStoriesRequest,
-    SearchStoriesResponse as searchStoriesResponse,
-    StoriesApiClient as storiesApiClient,
-    StoriesApiPromiseClient as storiesApiPromiseClient,
-    TopRatedStoriesRequest as topRatedStoriesRequest,
-    TopRatedStoriesResponse as topRatedStoriesResponse,
-    UpdateStoryRequest as updateStoryRequest,
-    UpdateStoryResponse as updateStoryResponse
-} from './api_grpc_web_pb'
+const {
+    AddStoryRequest: addStoryRequest,
+    AddStoryResponse: addStoryResponse,
+    GetStoryRequest: getStoryRequest,
+    GetStoryResponse: getStoryResponse,
+    HealthCheckRequest: healthCheckRequest,
+    HealthCheckResponse: healthCheckResponse,
+    MostViewedStoriesRequest: mostViewedStoriesRequest,
+    MostViewedStoriesResponse: mostViewedStoriesResponse,
+    PingRequest: pingRequest,
+    PingResponse: pingResponse,
+    SearchStoriesRequest: searchStoriesRequest,
+    SearchStoriesResponse: searchStoriesResponse,
+    TopRatedStoriesRequest: topRatedStoriesRequest,
+    TopRatedStoriesResponse: topRatedStoriesResponse,
+    UpdateStoryRequest: updateStoryRequest,
+    UpdateStoryResponse: updateStoryResponse,
+    Story: story
+} = require('./api_pb.js')
+
+const {
+    StoriesApiClient: storiesApiClient,
+    StoriesApiPromiseClient: storiesApiPromiseClient,
+    HealthClient: healthClient,
+    HealthPromiseClient: healthPromiseClient
+} = require('./api_grpc_web_pb.js');
 
 //CLIENT
 export const StoriesApiClient = storiesApiClient
 export const StoriesApiPromiseClient = storiesApiPromiseClient
 export const HealthClient = healthClient
 export const HealthPromiseClient = healthPromiseClient
+
+//STORY
+export const Story = story
 
 //HEALTH
 export const HealthCheckRequest = healthCheckRequest
