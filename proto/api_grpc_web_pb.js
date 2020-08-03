@@ -841,5 +841,85 @@ proto.StoriesApiPromiseClient.prototype.getTopRatedStories =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.DeleteStoryRequest,
+ *   !proto.DeleteStoryResponse>}
+ */
+const methodDescriptor_StoriesApi_DeleteStory = new grpc.web.MethodDescriptor(
+  '/StoriesApi/DeleteStory',
+  grpc.web.MethodType.UNARY,
+  proto.DeleteStoryRequest,
+  proto.DeleteStoryResponse,
+  /**
+   * @param {!proto.DeleteStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.DeleteStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.DeleteStoryRequest,
+ *   !proto.DeleteStoryResponse>}
+ */
+const methodInfo_StoriesApi_DeleteStory = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.DeleteStoryResponse,
+  /**
+   * @param {!proto.DeleteStoryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.DeleteStoryResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.DeleteStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.DeleteStoryResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.DeleteStoryResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.StoriesApiClient.prototype.deleteStory =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/StoriesApi/DeleteStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_DeleteStory,
+      callback);
+};
+
+
+/**
+ * @param {!proto.DeleteStoryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.DeleteStoryResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.StoriesApiPromiseClient.prototype.deleteStory =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/StoriesApi/DeleteStory',
+      request,
+      metadata || {},
+      methodDescriptor_StoriesApi_DeleteStory);
+};
+
+
 module.exports = proto;
 

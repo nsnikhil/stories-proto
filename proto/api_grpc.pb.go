@@ -136,6 +136,7 @@ type StoriesApiClient interface {
 	SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error)
 	GetMostViewedStories(ctx context.Context, in *MostViewedStoriesRequest, opts ...grpc.CallOption) (*MostViewedStoriesResponse, error)
 	GetTopRatedStories(ctx context.Context, in *TopRatedStoriesRequest, opts ...grpc.CallOption) (*TopRatedStoriesResponse, error)
+	DeleteStory(ctx context.Context, in *DeleteStoryRequest, opts ...grpc.CallOption) (*DeleteStoryResponse, error)
 }
 
 type storiesApiClient struct {
@@ -209,6 +210,15 @@ func (c *storiesApiClient) GetTopRatedStories(ctx context.Context, in *TopRatedS
 	return out, nil
 }
 
+func (c *storiesApiClient) DeleteStory(ctx context.Context, in *DeleteStoryRequest, opts ...grpc.CallOption) (*DeleteStoryResponse, error) {
+	out := new(DeleteStoryResponse)
+	err := c.cc.Invoke(ctx, "/StoriesApi/DeleteStory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // StoriesApiServer is the server API for StoriesApi service.
 // All implementations must embed UnimplementedStoriesApiServer
 // for forward compatibility
@@ -220,6 +230,7 @@ type StoriesApiServer interface {
 	SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error)
 	GetMostViewedStories(context.Context, *MostViewedStoriesRequest) (*MostViewedStoriesResponse, error)
 	GetTopRatedStories(context.Context, *TopRatedStoriesRequest) (*TopRatedStoriesResponse, error)
+	DeleteStory(context.Context, *DeleteStoryRequest) (*DeleteStoryResponse, error)
 	mustEmbedUnimplementedStoriesApiServer()
 }
 
@@ -247,6 +258,9 @@ func (*UnimplementedStoriesApiServer) GetMostViewedStories(context.Context, *Mos
 }
 func (*UnimplementedStoriesApiServer) GetTopRatedStories(context.Context, *TopRatedStoriesRequest) (*TopRatedStoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTopRatedStories not implemented")
+}
+func (*UnimplementedStoriesApiServer) DeleteStory(context.Context, *DeleteStoryRequest) (*DeleteStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStory not implemented")
 }
 func (*UnimplementedStoriesApiServer) mustEmbedUnimplementedStoriesApiServer() {}
 
@@ -380,6 +394,24 @@ func _StoriesApi_GetTopRatedStories_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StoriesApi_DeleteStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoriesApiServer).DeleteStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/StoriesApi/DeleteStory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoriesApiServer).DeleteStory(ctx, req.(*DeleteStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _StoriesApi_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "StoriesApi",
 	HandlerType: (*StoriesApiServer)(nil),
@@ -411,6 +443,10 @@ var _StoriesApi_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTopRatedStories",
 			Handler:    _StoriesApi_GetTopRatedStories_Handler,
+		},
+		{
+			MethodName: "DeleteStory",
+			Handler:    _StoriesApi_DeleteStory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

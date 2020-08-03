@@ -15,6 +15,8 @@ const {
     TopRatedStoriesResponse: topRatedStoriesResponse,
     UpdateStoryRequest: updateStoryRequest,
     UpdateStoryResponse: updateStoryResponse,
+    DeleteStoryRequest: deleteStoryRequest,
+    DeleteStoryResponse: deleteStoryResponse,
     Story: story
 } = require('./api_pb.js')
 
@@ -65,3 +67,7 @@ export const MostViewedStoriesResponse = mostViewedStoriesResponse
 //TOP RATED
 export const TopRatedStoriesRequest = topRatedStoriesRequest
 export const TopRatedStoriesResponse = topRatedStoriesResponse
+
+//TOP RATED
+export const DeleteStoryRequest = deleteStoryRequest
+export const DeleteStoryResponse = deleteStoryResponse

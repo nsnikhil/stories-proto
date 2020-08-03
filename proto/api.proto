@@ -44,6 +44,14 @@ message GetStoryResponse {
     Story story = 1;
 }
 
+message DeleteStoryRequest {
+    string storyID = 1;
+}
+
+message DeleteStoryResponse {
+    bool success = 1;
+}
+
 message SearchStoriesRequest {
     string query = 1;
 }
@@ -97,4 +105,5 @@ service StoriesApi {
     rpc SearchStories (SearchStoriesRequest) returns (SearchStoriesResponse);
     rpc GetMostViewedStories (MostViewedStoriesRequest) returns (MostViewedStoriesResponse);
     rpc GetTopRatedStories (TopRatedStoriesRequest) returns (TopRatedStoriesResponse);
+    rpc DeleteStory (DeleteStoryRequest) returns (DeleteStoryResponse);
 }
